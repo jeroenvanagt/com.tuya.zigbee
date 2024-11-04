@@ -36,7 +36,7 @@ class TankLevelMonitorDevice extends TuyaSpecificClusterDevice {
    * onInit is called when the device is initialized.
    */
   async onNodeInit({ zclNode }) {
-    zclNode.endpoints[1].clusters.tuya.on("response", (value) => this.update(value));
+    zclNode.endpoints[1].clusters.tuya.on("response", (value) => this.handleUpdate(value));
 
     await zclNode.endpoints[1].clusters.basic
       .readAttributes([
@@ -75,7 +75,7 @@ class TankLevelMonitorDevice extends TuyaSpecificClusterDevice {
     }
   }
 
-  async update(data) {
+  async handleUpdate(data) {
     const dp = data.dp;
     switch (dp) {
       case V1_TANK_LEVEL_MONITOR_DATA_POINTS.liquidLevelState:
