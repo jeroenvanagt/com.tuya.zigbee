@@ -10,14 +10,6 @@ const { V1_TANK_LEVEL_MONITOR_DATA_POINTS } = require("../../lib/TuyaDataPoints"
 // Add custom cluster handling for Tuya-specific messages
 Cluster.addCluster(TuyaSpecificCluster);
 
-// const TUYA_TANK_LEVEL_PERCENT_DP = 22;
-// const TUYA_TANK_DEPTH_DP = 2;
-// const TUYA_TANK_STATE_DP = 1;
-// const TUYA_INSTALLATION_HEIGHT_DP = 19;
-// const TUYA_MAX_SET_DP = 7;
-// const TUYA_MIN_SET_DP = 8;
-// const TUYA_DEPTH_MAX_DP = 21;
-
 const TANK_STATE = {
   1: "low",
   0: "normal",
